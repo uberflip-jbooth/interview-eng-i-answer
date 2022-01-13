@@ -4,7 +4,7 @@ import ImageCarousel from './ImageCarousel';
 export default function Home() {
   return (
     <div>
-      <ImageCarousel />
+      <ImageCarousel showThumbs={false} showIndicators={true} />
     </div>
   );
 }

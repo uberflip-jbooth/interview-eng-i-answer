@@ -41,7 +41,7 @@ export default class ImageCarousel extends React.Component {
   // Render the component. Before the component's state has any images
   // loaded, render the LoadingSpinner component instead.
   render() {
-    return <Carousel showThumbs={false} showIndicators={false}>
+    return <Carousel showThumbs={this.props.showThumbs} showIndicators={this.props.showIndicators}>
       {
         this.state.images.map((image, i) => {
           return (
