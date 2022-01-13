@@ -1,6 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -43,20 +44,21 @@ export default class ImageCarousel extends React.Component {
   // Render the component. Before the component's state has any images
   // loaded, render the LoadingSpinner component instead.
   render() {
-    return <Carousel showThumbs={this.props.showThumbs} showIndicators={this.props.showIndicators} useKeyboardArrows='true'>
-      {
-        this.state.images.map((image, i) => {
-          return (
-            <div key={'image-carousel-' + i}>
-              <img src={image.url} alt={image.url} />
-              <p className='legend'>
-                <h3>{image.title}</h3>
-                <p>{image.description}</p>
-              </p>
-            </div>
-          );
-        })
-      }
-    </Carousel>;
+    return this.state.images.length === 0 ? <LoadingSpinner /> :
+      <Carousel showThumbs={this.props.showThumbs} showIndicators={this.props.showIndicators} useKeyboardArrows='true'>
+        {
+          this.state.images.map((image, i) => {
+            return (
+              <div key={'image-carousel-' + i}>
+                <img src={image.url} alt={image.url} />
+                <p className='legend'>
+                  <h3>{image.title}</h3>
+                  <p>{image.description}</p>
+                </p>
+              </div>
+            );
+          })
+        }
+      </Carousel>;
   }
 } 
