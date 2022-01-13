@@ -1,9 +1,33 @@
+@carousel-height: 500px;
+@carousel-width: 1000px;
+
 #home {
-    // Display the spinner at 100% of its size in the middle of the page.
-    .spinner {
-        width: auto;
-        height: auto;
-        margin: 0 auto;
-        display: block;
+    // Set the dimensions of the wrapper according to the mock up.
+    .carousel-wrapper {
+        height: @carousel-height;
+        max-width: @carousel-width;
+
+        // Vertical scrolling is usually prefered over the element
+        // shifting up and down, so the margin from the top is fixed,
+        // but still responsive on smaller screens. It would be
+        // possible to achieve vertical alignment by using CSS flex,
+        // but it's not specified in the requirements.
+        margin: 100px auto;
+
+        // Set the images to the right dimension. Normally the images
+        // provided are the right size so this should not be necessary,
+        // and it's not specifed in the requirements.
+        img {
+            max-height: @carousel-height;
+            width: auto;
+        }
+
+        // Display the spinner at 100% of its size in the middle of the page.
+        .spinner {
+            width: auto;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
     }
 } 
