@@ -31,7 +31,9 @@ export default class ImageCarousel extends React.Component {
     const images = [];
     for (let entry of response.data) {
       images.push({
-        url: entry.url
+        url: entry.url,
+        title: entry.title,
+        description: entry.description
       });
     }
 
@@ -47,6 +49,10 @@ export default class ImageCarousel extends React.Component {
           return (
             <div key={'image-carousel-' + i}>
               <img src={image.url} alt={image.url} />
+              <p className='legend'>
+                <h3>{image.title}</h3>
+                <p>{image.description}</p>
+              </p>
             </div>
           );
         })
