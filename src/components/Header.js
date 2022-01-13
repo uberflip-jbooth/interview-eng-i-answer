@@ -7,8 +7,7 @@ export default function Header() {
   return (
     <header>
       <NavLink to='/' className='logo'>
-        <img src='uberflip.png' alt='Uberflip' />
-                Uberflip
+        <div className='img'></div>
       </NavLink>
     </header>
   );
